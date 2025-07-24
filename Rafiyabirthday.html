@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Rafuu Didi 💖</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff0f5;
+      font-family: 'Comic Sans MS', cursive;
+      overflow-x: hidden;
+    }
+
+    #greeting {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: #ffe4ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 6s ease-out forwards;
+    }
+
+    #greeting h1 {
+      font-size: 2.8em;
+      color: #ff1493;
+      text-shadow: 0 0 20px #ff69b4;
+      animation: bounce 2s infinite, glow 3s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-15px);}
+    }
+
+    @keyframes glow {
+      0% {text-shadow: 0 0 15px #ff69b4;}
+      50% {text-shadow: 0 0 35px #ff1493;}
+      100% {text-shadow: 0 0 15px #ff69b4;}
+    }
+
+    @keyframes fadeOut {
+      to {opacity: 0; visibility: hidden;}
+    }
+
+    .section {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .message-box {
+      font-size: 1.3em;
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 10px auto;
+      width: 85%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .float-loop {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.4em;
+      color: #ff69b4;
+      background: #fff0f5;
+      padding: 10px 20px;
+      border-radius: 30px;
+      box-shadow: 0 0 15px #ff69b4;
+      animation: float 4s ease-in-out infinite;
+      z-index: 1000;
+    }
+
+    @keyframes float {
+      0%, 100% {transform: translateX(-50%) translateY(0);}
+      50% {transform: translateX(-50%) translateY(-10px);}
+    }
+
+    #player { display: none; }
+
+    #cake-img {
+      display: none;
+      width: 150px;
+      margin: 20px auto;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: driftUp 5s ease-in infinite;
+      z-index: 1;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { top: 0; left: -10px; }
+
+    @keyframes driftUp {
+      from {transform: translateY(100vh) rotate(45deg);}
+      to {transform: translateY(-100vh) rotate(45deg);}
+    }
+
+    @keyframes drop {
+      from { transform: translateY(-100px); opacity: 1; }
+      to { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎈 Greeting -->
+  <div id="greeting">
+    <h1>Hey Rafuu! Warrior made this for you 💥 Rate it 100/10 or pay in fries 🍟</h1>
+  </div>
+
+  <!-- 💬 Loop Message -->
+  <div class="float-loop">Rafuuu is very small 💞 but also a total legend 💥</div>
+
+  <!-- 💕 Compliments Section -->
+  <div class="section">
+    <h2>From Warrior to You 💌</h2>
+    <div class="message-box">You're cute, chaotic and I kinda love that combo 🤪</div>
+    <div class="message-box">You're the drama spark I didn’t know I needed ✨</div>
+    <div class="message-box">You're small but your vibes are loud 😭💅</div>
+  </div>
+
+  <!-- 🎶 Music Zone -->
+  <div class="section">
+    <h2>Pick Your Mood 🎶</h2>
+    <audio id="player"></audio>
+    <button onclick="playMusic('pop.mp3')">Pop Party</button>
+    <button onclick="playMusic('lofi.mp3')">Lo-Fi Chill</button>
+    <button onclick="playMusic('fireworks.mp3')">Chaos Mode</button>
+  </div>
+  <!-- 🎂 Virtual Cake Party -->
+  <div class="section">
+    <h2>🎂 Cake Time</h2>
+    <button onclick="cutCake()">Tap to Cut the Cake 🍰</button>
+    <img id="cake-img" src="cake.png" alt="Cake" />
+  </div>
+
+  <!-- 🎊 Sparkle Effects -->
+  <div class="section">
+    <h2>✨ Click for Chaos</h2>
+    <button onclick="launchConfetti()">Confetti 💥</button>
+    <button onclick="launchHearts()">Heart Rain 💖</button>
+  </div>
+
+  <!-- 🎮 Game Zone -->
+  <div class="section">
+    <h2>🎮 Game Zone</h2>
+    <button onclick="alert('Dare: Send me the weirdest selfie you’ve got right now 🤪')">Selfie Dare</button>
+    <button onclick="alert('Dare: Text me “You’re right and I’m wrong” but mean it 😈')">Bold Text Dare</button>
+    <button onclick="alert('Dare: Tell me one thing you like about me... and one thing that annoys you 👀')">Honest Dare</button>
+    <button onclick="alert('Dare: Say “Mangoes are emotions” without any explanation 🥭')">Confused Dare</button>
+  </div>
+
+  <!-- 🔮 Birthday Predictions -->
+  <div class="section">
+    <h2>🔮 Predictions From Me</h2>
+    <div class="message-box">
+      You’ll glow harder than glitter, trip at least 5 times this year, laugh uncontrollably at least 3000 times, and still manage to look cute through it all 💫
+    </div>
+  </div>
+
+  <!-- 💼 Rafuu's Friendship Resume -->
+  <div class="section">
+    <h2>💼 Your Friendship Resume</h2>
+    <div class="message-box">Title: Chaos Queen 👑</div>
+    <div class="message-box">Skills: Sarcasm, snack stealing, making me laugh when I least expect it 🍟</div>
+    <div class="message-box">References: Warrior (10/10 emotionally affected 🥲)</div>
+  </div>
+
+  <!-- 🎭 Mood Selector -->
+  <div class="section">
+    <h2>🎭 Mood Check</h2>
+    <button onclick="setMood('sparkly')">Feeling Sparkly ✨</button>
+    <button onclick="setMood('overthinking')">Overthinking 🧠</button>
+    <button onclick="setMood('chaotic')">Chaos Activated 💥</button>
+  </div>
+
+  <!-- 🤓 Friend Type Quiz -->
+  <div class="section">
+    <h2>🤓 What Kind of Friend Are You?</h2>
+    <button onclick="showResult()">Take the Quiz</button>
+    <div id="quiz-result" class="message-box" style="display:none;"></div>
+  </div>
+
+  <!-- 🕵️ Hidden Compliment -->
+  <div class="section">
+    <h2>🕵️ Secret Button Zone</h2>
+    <button onclick="revealTreasure()">Tap Me (Maybe)</button>
+    <div id="treasure-message" class="message-box" style="display:none;">
+      You’re seriously special. Like limited-edition kind of special 💖
+    </div>
+  </div>
+<!-- 🌟 Weirdness Rating Section -->
+<div class="section">
+  <h2>🧪 How Weird Am I?</h2>
+  <p style="font-size:1.2em;">Okay Rafuu, be honest. Rate how weird you think I am (but remember, I’m proud of it 🤡)</p>
+  <input type="range" min="0" max="10" value="5" id="weirdRange" oninput="updateWeirdLabel()" />
+  <p id="weirdLabel" style="font-size:1.3em; margin-top:10px;">Weirdness Level: 5/10</p>
+  <button onclick="submitWeirdness()">Lock in your rating 🔒</button>
+  <div id="weirdResult" class="message-box" style="display:none;"></div>
+</div>
+  <!-- 🎯 Surprise Scripts -->
+  <script>
+    function playMusic(src) {
+      const player = document.getElementById("player");
+      player.src = src;
+      player.play();
+    }
+
+    function cutCake() {
+      document.getElementById("cake-img").style.display = "block";
+      playMusic('fireworks.mp3');
+      launchConfetti();
+      launchHearts();
+    }
+
+    function launchConfetti() {
+      for (let i = 0; i < 40; i++) {
+        const conf = document.createElement('div');
+        conf.style.position = 'absolute';
+        conf.style.width = '10px';
+        conf.style.height = '10px';
+        conf.style.borderRadius = '50%';
+        conf.style.background = ['#ff1493','#ff69b4','#ffa07a','#ffb6c1'][Math.floor(Math.random()*4)];
+        conf.style.left = Math.random()*window.innerWidth + 'px';
+        conf.style.top = '-20px';
+        conf.style.animation = 'drop 4s ease-in forwards';
+        document.body.appendChild(conf);
+        setTimeout(() => conf.remove(), 4000);
+      }
+    }
+
+    function launchHearts() {
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random()*window.innerWidth + 'px';
+        heart.style.top = '100vh';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }
+    }
+
+    function setMood(mood) {
+      if (mood === 'sparkly') {
+        launchConfetti();
+        alert("✨ You sparkle even when you're chaotic");
+      } else if (mood === 'overthinking') {
+        alert("🧠 Chill. You're amazing and Warrior totally said so");
+      } else if (mood === 'chaotic') {
+        launchConfetti(); launchHearts();
+        alert("💥 Chaos unlocked. No turning back now!");
+      }
+    }
+
+    function showResult() {
+      const types = [
+        "The Chaos Fairy 🧚‍♀️",
+        "The Sass Queen 👑",
+        "The Emotional Pancake 🥞",
+        "Warrior’s Surprisingly Sweet Bestie 💘"
+      ];
+      const result = types[Math.floor(Math.random()*types.length)];
+      const box = document.getElementById("quiz-result");
+      box.textContent = `Your result: ${result}`;
+      box.style.display = "block";
+    }
+
+    function revealTreasure() {
+      document.getElementById("treasure-message").style.display = "block";
+      launchConfetti();
+    }
+
+    setTimeout(() => {
+      document.getElementById("greeting").style.display = "none";
+    }, 6000);
+    function updateWeirdLabel() {
+  const val = document.getElementById("weirdRange").value;
+  document.getElementById("weirdLabel").textContent = `Weirdness Level: ${val}/10`;
+}
+
+function submitWeirdness() {
+  const val = document.getElementById("weirdRange").value;
+  let message = "";
+
+  if (val <= 3) {
+    message = "Wow... either you’re lying or I’ve fooled you. I’m weirder than that 😭";
+  } else if (val <= 6) {
+    message = "Fair enough. I call it ✨moderately chaotic✨";
+  } else if (val <= 9) {
+    message = "YES. That’s the correct diagnosis: Warrior = certified weirdo 😎";
+  } else {
+    message = "10/10? Bro. I might be an alien and you're just finding out now 👽";
+  }
+
+  const box = document.getElementById("weirdResult");
+  box.textContent = message;
+  box.style.display = "block";
+}
+  </script>
+</body>
+</html>
